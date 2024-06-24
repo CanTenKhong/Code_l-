@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>  
+#include <string.h>
+#include <sstream> 
+using namespace std;
+
+
+
+int main (){
+    
+    int n ;
+    cout << "Nhap so nguyen duong n: ";
+    cin >> n ;
+    
+    if(n <= 0){
+        cout << "vui long nhap so nguyen duong!";
+    }
+    else{
+        
+        int tong_all_so_uoc = 0;
+        int so_luong_uoc = 0;
+        for(int i=1; i<=n ; ++i){
+            
+            if( n % i ==0){
+                
+            tong_all_so_uoc +=i;
+            so_luong_uoc +=1;
+            }
+            
+            
+            
+        }
+        
+        cout << " Tong uoc: " <<tong_all_so_uoc <<  "\n";
+        cout << " So uoc: "<<so_luong_uoc  << "\n";
+    }
+    return 0;
+}
