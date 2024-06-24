@@ -1,0 +1,52 @@
+#include <iostream>
+#include <iomanip>  // Định dạng thập phân 
+#include <string.h>
+#include <sstream> // Thư viện sstream cho stringstream(chuỗi ký tự)
+using namespace std;
+
+// Hàm tính giai thừa
+unsigned long long thuaso(int x) {  // unsigned long long cho tệp giá trị lớn hơn unsigned long 
+    if (x == 0 || x == 1) {            // Nếu x =0 và x=1 thì return ra 1 
+        return 1;
+    } else {
+        unsigned long long result = 1;
+        for (int i = 2; i <= x; ++i) {
+            result *= i;
+        }
+        return result;
+    }
+}
+
+// Hàm tính S(n)
+string Tinh_S(int n) {
+    if (n <= 0) {
+        return "sai dinh dang!";
+    }
+    
+    double S = 1.0;
+    for (int i = 2; i <= n; ++i) {
+        S += 1.0 / thuaso(i);
+    }
+    
+    // Định dạng kết quả .000
+    stringstream stream;
+    stream << fixed << setprecision(3) << S;  // fixed định dạng số ở dạng thập phân cố định;
+    return stream.str();                       // setprecision(3) đặt độ chính xác đế số thập phân 3 chữ số
+}                                              // Vd S =2.75639 => result là 2.756
+
+int main() {
+    int n;
+    cout << "Nhap n: ";
+    cin >> n;
+
+    // check data in 
+    if (!cin) {                             //  "!cin" có thể viết ở dạng cin.fail() biểu thức ktra n nhập vào có lỗi hay kh 
+        cout << "sai dinh dang!" << endl;    // Vd nhập n = "abc" => lỗi ; n = 5 => đúng vì "abc" kh thể chuyển đổi thành số để tính giai thừa 
+        return 0;
+    }
+
+    string result = Tinh_S(n);
+    cout << result << endl;
+
+    return 0;
+}
