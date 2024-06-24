@@ -1,0 +1,32 @@
+#include <iostream>
+#include <iomanip>  // de su dung ham setprecision
+
+using namespace std;
+
+int main (){
+    double lai_ssuat, tien_goc , tien_lai ;
+    int nam_gui;
+    int n =0;
+    
+    cout << "Nhap so tien gui: ";
+    cin >> tien_goc;
+    cout << "Nhap lai suat: ";
+    cin >> lai_ssuat;
+    cout << "Nhap thoi han(nam): ";
+    cin >> nam_gui;
+    
+    
+    
+    do
+    {
+        tien_goc  *= (1+ lai_ssuat/100);
+        n++;
+    }
+    while(n < nam_gui);
+    
+    cout << "So tien nhan duoc sau " << nam_gui << " năm là: " << fixed << setprecision(2) << tien_goc << endl;//setprecision(2) Lay 2 so sau dau .
+
+    
+    return 0;
+    
+}
