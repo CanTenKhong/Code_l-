@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>  
+#include <vector>
+using namespace std;
+
+int main (){
+    int n;
+    cout << "Nhap so phan tu mang: ";
+    cin >> n;
+    if( cin.fail() || n <= 0){
+        cout << "Sai đinh dang!";
+        return 1;
+    }
+    int arr[100];
+    // vector <int> arr(n);
+    cout << "Nhap cac phan tu cua mang: ";
+    for(int i =0 ; i < n ; ++i){
+        
+        cin >> arr[i];
+        
+        if(cin.fail() ){
+            cout << " Sai dinh dang!";
+            return 1;
+        }
+        
+    }
+    
+    bool tang_giam = true;
+    for(int i=0; i<n ; ++i){
+        if(arr[i]< arr[i-1]){
+            tang_giam = false;
+            break;
+        }
+    }
+    
+    if(tang_giam){
+        cout << "Mang tang dan.";
+    }
+    else 
+    cout << "Mang khong tang dan.";
+    return 0;
+    
+}
