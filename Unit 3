@@ -16,7 +16,10 @@ int main (){
     cin >> nam_gui;
     
     
-    
+    if(nam_gui <= 0){
+        
+    cout <<"Sai dinh dang!";
+    }else{
     do
     {
         tien_goc  *= (1+ lai_ssuat/100);
@@ -25,8 +28,7 @@ int main (){
     while(n < nam_gui);
     
     cout << "So tien nhan duoc sau " << nam_gui << " năm là: " << fixed << setprecision(2) << tien_goc << endl;//setprecision(2) Lay 2 so sau dau .
-
-    
+    }
     return 0;
     
 }
